@@ -1,20 +1,67 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+import Home from './componentes/TelaInicial/index';
+import Copo from './componentes/TelaCopo/index';
+import Tempo from './componentes/TelaTempo/index';
+import iconeHome from './assets/home.png';
+import iconeCopo from './assets/copo.png';
+import iconeTempo from './assets/tempo.png';
+import { Image } from 'react-native';
+
+const Navegacao = createBottomTabNavigator();
+
+const app = () => {
+  return(
+    <NavigationContainer>
+      <Navegacao.Navigator screenOptions={{
+        headerStyle: {
+          backgroundColor: '#000',
+        },
+        tabBarStyle: {
+          backgroundColor: '#017B8B',
+        },
+        tabBarLabelStyle: {
+          fontSize: 11,
+          fontWeight: "bold",
+        },
+
+        tabBarInactiveTintColor: 'black', // Cor do texto quando inativo
+        tabBarActiveTintColor: '#FFF', // Cor do texto quando ativo
+      }}>
+        <Navegacao.Screen name='Home' component={Home}  options={
+            { headerShown: false ,
+            tabBarIcon: () => (
+              <Image
+                source = {iconeHome}
+                style = {{width: 20, height: 32}}
+              />
+            )
+          }}/>
+        <Navegacao.Screen name='Copo' component={Copo}  options={
+        {
+           headerShown: false,
+           tabBarIcon: () => (
+              <Image
+                source = {iconeCopo}
+                style = {{width: 20, height: 32}}
+              />
+            ) 
+          }}/>
+        <Navegacao.Screen name='Tempo' component={Tempo}  options={
+          { 
+            headerShown: false,
+            tabBarIcon: () => (
+              <Image
+                source = {iconeTempo}
+                style = {{width: 40, height: 32}}
+              />
+            )
+            }}/>
+      </Navegacao.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default app;
