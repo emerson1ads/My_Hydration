@@ -1,8 +1,15 @@
 import React from 'react';
 import {View,Text, Pressable, TextInput} from 'react-native';
 import estilo from './estilo';
+import { useDataContext } from '../../service/dataContext';
 
 const Tempo = () => {
+
+    const {
+        aguaSalva, setAguaSalva, quantidadeAdicional, setQuantidadeAdicional
+    } = useDataContext();
+
+
     return(
         <View style={estilo.container}>
             <View style = {estilo.boxCentral}>

@@ -4,16 +4,18 @@ import estilo from './estilo';
 import pegarData from '../../service/data';
 import qAgua from '../../service/qAgua';
 import checktm from '../../service/checktm';
-import { useRoute } from '@react-navigation/native';
+import { useDataContext } from '../../service/dataContext';
 
 const Home = () => {
+
+    const {
+        aguaSalva, setAguaSalva, quantidadeAdicional, setQuantidadeAdicional
+
+    } = useDataContext();
 
     const [data, setData] = useState("");
     const [aguaq, setAguaq] = useState(0);
     const [tm, setTm] = useState([]);
-    const route = useRoute();
-    const aguaSalva = route.params?.aguaSalva || 2000;
-    const quantidadeAdicional = route.params?.quantidadeAdicional || 200;
 
     useEffect(()=> {
         const dataAtual = pegarData();
