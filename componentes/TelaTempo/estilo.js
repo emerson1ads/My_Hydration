@@ -35,7 +35,7 @@ const estilo = StyleSheet.create({
     titulo2: {
         fontFamily: "Kavoon",
         fontSize: 30,
-        marginVertical: 10,
+        marginVertical: 20,
         width: 200,
         textAlign: "center"
     },
@@ -99,6 +99,14 @@ const estilo = StyleSheet.create({
         fontSize: 20,
         textAlign: "center"
     },
+
+    erroMsg: {
+        alignItems: 'center',
+        textAlign: 'center',
+        fontFamily: "Kavoon",
+        color: 'red',
+        fontSize: 20
+    }
 });
 
 export default estilo;
