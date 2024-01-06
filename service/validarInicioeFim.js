@@ -1,4 +1,4 @@
-// validarInicioeFim.js
+// validarInicioeFim
 
 export function validarInicio(inicio, erro) {
     const numeroInicio = parseFloat(inicio);
